@@ -7,13 +7,14 @@ from bin.config import settings
 from bin.app.routes.api.v0 import router as APIv0
 from bin.app.routes.web.v0 import router as WEBv0
 
-_app = FastAPI(title=settings.PROJECT_NAME)
+title = settings.PROJECT_NAME
+version = settings.PROJECT_VERSION
+description = settings.PROJECT_DESC
+
+_app = FastAPI(title=title, version=version, description=description)
 _app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        str(origin)
-        for origin in settings.BACKEND_CORS_ORIGINS
-    ],
+    allow_origins=[str(origin)for origin in settings.BACKEND_CORS_ORIGINS],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

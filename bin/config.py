@@ -5,6 +5,8 @@ from pydantic import AnyHttpUrl, BaseSettings, validator
 class Settings(BaseSettings):
     APP_ENV: str
     PROJECT_NAME: str
+    PROJECT_VERSION: str
+    PROJECT_DESC: str
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
 
     @validator("BACKEND_CORS_ORIGINS", pre=True)

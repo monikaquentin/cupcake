@@ -10,6 +10,8 @@ from starlette.responses import RedirectResponse
 from bin.app.databases.index import connect
 from bin.app.models.list import List
 
+from bin.config import settings
+
 
 templates = Jinja2Templates(directory='bin/src')
 
@@ -21,7 +23,7 @@ def index_web(request: Request, db: Session = Depends(connect)):
     lists = db.query(List).all()
     payload = {
         'request': request,
-        'doc_title': 'WEBv0 PokeCake (0.1.0)',
+        'doc_title': f"WEBv0 PokeCake ({settings.PROJECT_VERSION})",
         'data': lists,
         'year': datetime.date.today().year
     }
