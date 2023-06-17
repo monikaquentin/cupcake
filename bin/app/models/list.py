@@ -1,6 +1,6 @@
 from sqlalchemy import Boolean, Column, Integer, String
 
-from bin.databases.index import Base
+from bin.app.databases.index import Base
 
 
 class List(Base):

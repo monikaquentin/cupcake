@@ -33,6 +33,7 @@
 
 # cache
 /__pycache__
+/bin/__pycache__
 
 # secret|public key / certificate
 *.pem

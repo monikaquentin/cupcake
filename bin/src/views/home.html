@@ -1,0 +1,35 @@
+{% extends "templates/base.html" %}
+{% block title %} {{ doc_title }} {% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        html {
+            background: #f9f9f9;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>{{ doc_title }}</h1>
+    <form action="/add" method="post">
+        <input type="text" name="title" />
+        <button type="submit">Add</button>
+    </form>
+    <br />
+    {% for list in data %}
+        <p>{{ list.id }} | {{ list.title }}</p>
+        {% if list.complete %}
+            <small>Completed</small>
+        {% else %}
+            <small>Not complete</small>
+        {% endif %}
+
+        <a href="/update/{{ list.id }}">Update</a>
+        <a href="/delete/{{ list.id }}">Delete</a>
+    {% endfor %}
+{% endblock %}
+
+{% block footer %}
+    <br />
+    <small>&copy; 2023 RedVelvet Created by Unknown</small>
+{% endblock %}

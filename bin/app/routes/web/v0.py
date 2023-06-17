@@ -5,11 +5,11 @@ from sqlalchemy.orm import Session
 from starlette.templating import Jinja2Templates
 from starlette.responses import RedirectResponse
 
-from bin.databases.index import connect
-from bin.models.list import List
+from bin.app.databases.index import connect
+from bin.app.models.list import List
 
 
-templates = Jinja2Templates(directory='bin/views')
+templates = Jinja2Templates(directory='bin/src')
 
 router = APIRouter()
 
@@ -17,7 +17,12 @@ router = APIRouter()
 @router.get('/')
 def index_web(request: Request, db: Session = Depends(connect)):
     lists = db.query(List).all()
-    return templates.TemplateResponse('index.html', {'request': request, 'text': 'WEBv0 CORE (0.1.0)', 'data': lists})
+    payload = {
+        'request': request,
+        'doc_title': 'WEBv0 CORE (0.1.0)',
+        'data': lists
+    }
+    return templates.TemplateResponse('views/home.html', payload)
 
 
 @router.post('/add')
@@ -52,9 +57,9 @@ def delete(request: Request, list_id: int, db: Session = Depends(connect)):
 
 @router.get('/robots.txt')
 def robots():
-    data = """
+    data = '''
     # https://www.robotstxt.org/robotstxt.html
     User-agent: *
     Disallow: /
-    """
+    '''
     return Response(content=data, media_type='text/plain')
