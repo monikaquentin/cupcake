@@ -21,7 +21,7 @@ def index_web(request: Request, db: Session = Depends(connect)):
     lists = db.query(List).all()
     payload = {
         'request': request,
-        'doc_title': 'WEBv0 CORE (0.1.0)',
+        'doc_title': 'WEBv0 PokeCake (0.1.0)',
         'data': lists,
         'year': datetime.date.today().year
     }
