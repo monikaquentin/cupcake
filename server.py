@@ -1,6 +1,6 @@
 #
 # -------------------------------------------------------------------------------
-# Copyright © 2022 RedVelvet All Rights Reserved
+# Copyright © 2023 RedVelvet All Rights Reserved
 # -------------------------------------------------------------------------------
 #
 # Author      : Unknown <unknown@redvelvet.me> (https://redvelvet.me)
@@ -20,19 +20,15 @@ PORT = 8000
 
 
 async def main():
-    #
     config = uvicorn.Config(app=PATH, host=HOST, port=PORT)
     server = uvicorn.Server(config)
     await server.serve()
 
 
 if __name__ == "__main__":
-    #
     if (settings.APP_ENV.lower() != 'development'):
-        #
         asyncio.run(main())
     else:
-        #
         uvicorn.run(
             app=PATH,
             host=HOST,
