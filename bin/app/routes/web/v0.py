@@ -1,3 +1,5 @@
+import datetime
+
 from fastapi import APIRouter, Depends, Request, Response, Form, status
 
 from sqlalchemy.orm import Session
@@ -20,7 +22,8 @@ def index_web(request: Request, db: Session = Depends(connect)):
     payload = {
         'request': request,
         'doc_title': 'WEBv0 CORE (0.1.0)',
-        'data': lists
+        'data': lists,
+        'year': datetime.date.today().year
     }
     return templates.TemplateResponse('views/home.html', payload)
 
