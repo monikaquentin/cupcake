@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CORE (0.1.0)</title>
+    </head>
+    <body>
+        <h1>{{ text }}</h1>
+        <form action="/add" method="post">
+            <input type="text" name="title" />
+            <button type="submit">Add</button>
+        </form>
+        {% for list in data %}
+        <p>{{ list.id }} | {{ list.title }}</p>
+        {% if list.complete %}
+        <span>Completed</span>
+        {% else %}
+        <span>Not complete</span>
+        {% endif %}
+
+        <a href="/update/{{ list.id }}">Update</a>
+        <a href="/delete/{{ list.id }}">Delete</a>
+        {% endfor %}
+    </body>
+</html>

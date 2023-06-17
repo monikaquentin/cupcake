@@ -1,0 +1,8 @@
+* text=auto
+*.html linguist-vendored
+*.htm linguist-vendored
+*.ejs linguist-vendored
+*.handlebars linguist-vendored
+*.hbs linguist-vendored
+.env.example linguist-vendored
+CHANGELOG.md export-ignore
