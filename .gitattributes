@@ -1,6 +1,7 @@
 * text=auto
 *.html linguist-vendored
 *.htm linguist-vendored
+*.css linguist-vendored
 *.ejs linguist-vendored
 *.handlebars linguist-vendored
 *.hbs linguist-vendored
