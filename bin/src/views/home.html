@@ -10,23 +10,7 @@
 {% endblock %}
 
 {% block content %}
-    <h1>{{ doc_title }}</h1>
-    <form action="/add" method="post">
-        <input type="text" name="title" />
-        <button type="submit">Add</button>
-    </form>
-    <br />
-    {% for list in data %}
-        <p>{{ list.id }} | {{ list.title }}</p>
-        {% if list.complete %}
-            <small>Completed</small>
-        {% else %}
-            <small>Not complete</small>
-        {% endif %}
-
-        <a href="/update/{{ list.id }}">Update</a>
-        <a href="/delete/{{ list.id }}">Delete</a>
-    {% endfor %}
+    {% include "components/list.html" %}
 {% endblock %}
 
 {% block footer %}
