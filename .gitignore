@@ -32,8 +32,9 @@
 *.lock
 
 # cache
-/__pycache__
-/bin/__pycache__
+__pycache__/
+*.pyo
+*.pyc
 
 # secret|public key / certificate
 *.pem

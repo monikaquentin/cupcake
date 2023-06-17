@@ -8,4 +8,4 @@ router = APIRouter()
 @router.get('')
 def index_api():
     #
-    return f"APIv0 PokeCake ({settings.PROJECT_VERSION})"
+    return f"APIv0 {settings.PROJECT_NAME} ({settings.PROJECT_VERSION})"

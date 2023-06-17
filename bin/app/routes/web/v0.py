@@ -23,7 +23,7 @@ def index_web(request: Request, db: Session = Depends(connect)):
     lists = db.query(List).all()
     payload = {
         'request': request,
-        'doc_title': f"WEBv0 PokeCake ({settings.PROJECT_VERSION})",
+        'doc_title': f"WEBv0 {settings.PROJECT_NAME} ({settings.PROJECT_VERSION})",
         'data': lists,
         'year': datetime.date.today().year
     }

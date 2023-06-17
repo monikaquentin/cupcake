@@ -6,14 +6,21 @@
         html {
             background: #f9f9f9;
         }
+        .cupcake{
+            margin: 10px 0 10px -55px;
+        }
+        #content, #footer{
+            padding: 10px;
+        }
     </style>
 {% endblock %}
 
 {% block content %}
+    <img src="static/png/cupcake.png" alt="cupcake" class="cupcake">
     {% include "components/list.html" %}
 {% endblock %}
 
 {% block footer %}
     <br />
-    <small>&copy; {{ year }} RedVelvet Created by Unknown</small>
+    <small><b>&copy; {{ year }} RedVelvet Created by Unknown</b></small>
 {% endblock %}
